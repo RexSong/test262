@@ -1,7 +1,10 @@
+// Copyright 2015 Microsoft Corporation. All rights reserved.
+// This code is governed by the license found in the LICENSE file.
+
 /*---
 description: Test Object.Assign(target,...sources).
-es6id:  19.1.2.1.5.c           
-author: Wei Guo
+es6id:  19.1.2.1.5.c
+includes: [assert.js]
 ---*/
  
 //"a" will be an property of the final object and the value should be 1  
@@ -15,6 +18,11 @@ var target = {a:1};
 */
 var result = Object.assign(target,"1a2c3",{a:"c"},undefined,{b:6},null,125,{a:5});
 
-assert(Object.keys(result).length === 7 , "The length should be 7 in the final object,but actual length: " + Object.keys(result).length +" . Error Occured here!");
-assert((result.a === 5 && result[0] === "1" && result[1] === "a" && result[2] === "2" && result[3] === "c" && result[4] === "3" && result.b === 6) , " The properties value should be : {a:5,\"0\":\"1\",\"1\":\"a\",\"2\":\"2\",\"3\":\"c\",\"4\":\"3\",b:6}, but we got:{a:" + result.a +",\"0\":\""+ result[0]+
-       "\",\"1\":\"" + result[1]+ "\",\"2\":\"" +result[2] + "\",\"3\":\"" + result[3] + "\",\"4\":\"" + result[4] +"\",b:"+ result.b + "}instead");
+assert.sameValue(Object.keys(result).length, 7 , "The length should be 7 in the final object,but actual length: " + Object.keys(result).length +".");
+assert.sameValue(result.a, 5, "The value should be {a:5}, but we got:{a:" + result.a +"}.");
+assert.sameValue(result[0], "1", "The value should be {\"0\":\"1\"}, but we got:{\"0\":\""+ result[0] + "\"}.");
+assert.sameValue(result[1], "a", "The value should be {\"1\":\"a\"}, but we got:{\"1\":\""+ result[1] + "\"}.");
+assert.sameValue(result[2], "2", "The value should be {\"2\":\"2\"}, but we got:{\"2\":\""+ result[2] + "\"}.");
+assert.sameValue(result[3], "c", "The value should be {\"3\":\"c\"}, but we got:{\"3\":\""+ result[3] + "\"}.");
+assert.sameValue(result[4], "3", "The value should be {\"4\":\"3\"}, but we got:{\"4\":\""+ result[4] + "\"}.");
+assert.sameValue(result.b, 6, "The value should be {b:6}, but we got:{b:" + result.b +"}.");
