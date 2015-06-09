@@ -8,7 +8,6 @@ es6id:  19.1.2.1.1
 includes: [assert.js]
 ---*/
 
-
 assert.throws(TypeError, function(){
                 Object.assign(undefined, {a:1});
 			  });
