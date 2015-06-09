@@ -8,7 +8,7 @@ es6id:  19.1.2.1
 includes: [assert.js]
 --*/
 
-var target = {a: 1};
+var target = {a: 2};
 var result = Object.assign(target,{a:2},{a:"c"});
 
 assert.sameValue(result.a, "c", "Object.assign() will override the property with the last value of this property in the arguments, so the value should be 'c'. But we got a \'" +result.a 
