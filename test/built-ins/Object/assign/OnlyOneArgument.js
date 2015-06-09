@@ -12,5 +12,3 @@ var target = "a";
 var result = Object.assign(target);
 
 assert.sameValue(result.valueOf(), "a", "Should return 'a',but \'"+ result.valueOf() + "\' instead.");
-
-
